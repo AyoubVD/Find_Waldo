@@ -101,3 +101,19 @@ class ConvNet(nn.Module):
             output=self.fc(output)
             
             return output
+        
+model = ConvNet(num_classes=6).to(device)
+# Optimizer and loss function
+optimizer=Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
+loss_function=nn.CrossEntropyLoss()
+
+num_epochs=0
+
+# Calculating the size of training and testing images
+train_count=len(glob.glob(train_path+'/**/*.jpg'))
+test_count=len(glob.glob(test_path+'/**/*.jpg'))
+
+print('Number of training pics: ',train_count)
+print('Number of testing pics: ',test_count)
+
+        

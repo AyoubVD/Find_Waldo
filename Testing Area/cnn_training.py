@@ -31,11 +31,11 @@ test_path='C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/T
 
 train_loader = DataLoader(
     torchvision.datasets.ImageFolder(train_path,transform=transformer),
-    batch_size=256, shuffle=True
+    batch_size=210, shuffle=True
 )
 test_loader = DataLoader(
     torchvision.datasets.ImageFolder(test_path,transform=transformer),
-    batch_size=256, shuffle=True
+    batch_size=210, shuffle=True
 )
 
 # Categories
@@ -106,7 +106,7 @@ model = ConvNet(num_classes=6).to(device)
 optimizer=Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 loss_function=nn.CrossEntropyLoss()
 
-num_epochs=10
+num_epochs=6
 
 # Calculating the size of training and testing images
 train_count=len(glob.glob(train_path+'/**/*.jpg'))
@@ -149,8 +149,8 @@ for epoch in range(num_epochs):
     
     test_accuracy=0.0
     for i, (images,labels) in enumerate(test_loader):
-        images=Variable((image.cuda()))
-        labels=Variable((labels.cuda()))
+        images=Variable(image.cuda())
+        labels=Variable(labels.cuda())
             
         outputs=model(images)
         _, prediction=torch.max(outputs.data,1)

@@ -23,7 +23,6 @@ transformer = transforms.Compose([
     transforms.Normalize([0.5, 0.5, 0.5], # 0-1 to [-1,1], formula: (x-mean)/std (standard deviation)
                          [0.5, 0.5, 0.5])
     ])
-
 # DataLoader
 
 # Path for training and testing directory
@@ -78,36 +77,36 @@ class ConvNet(nn.Module):
         # Shape = (256, 32, 75, 75)
         
         self.fc=nn.Linear(in_features=32*75-75, out_features=num_classes)
-        
-        # Feed forward function
-        def forward(self, input):
-            output=self.conv1(input)
-            output=self.bn1(output)
-            output=self.relu1(output)
+
+    # Feed forward function
+    def forward(self, input):
+        output=self.conv1(input)
+        output=self.bn1(output)
+        output=self.relu1(output)
             
-            output=self.pool(output)
+        output=self.pool(output)
             
-            output=self.conv2(output)
-            output=self.relu2(output)
+        output=self.conv2(output)
+        output=self.relu2(output)
             
-            output=self.conv3(output)
-            output=self.bn3(output)
-            output=self.relu3(output)
+        output=self.conv3(output)
+        output=self.bn3(output)
+        output=self.relu3(output)
             
-            # Above output will be in the matriix form, with shape (256, 32, 75, 75)
+        # Above output will be in the matriix form, with shape (256, 32, 75, 75)
             
-            output=output.view(-1,32*75*75)
+        output=output.view(-1,32*75*75)
             
-            output=self.fc(output)
+        output=self.fc(output)
             
-            return output
-        
+        return output
+
 model = ConvNet(num_classes=6).to(device)
 # Optimizer and loss function
 optimizer=Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 loss_function=nn.CrossEntropyLoss()
 
-num_epochs=0
+num_epochs=10
 
 # Calculating the size of training and testing images
 train_count=len(glob.glob(train_path+'/**/*.jpg'))
@@ -124,13 +123,10 @@ for epoch in range(num_epochs):
     model.train()
     train_accuracy = 0.0
     train_loss = 0.0
-    for i, (image,labels) in enumeraate(train_loader):
-        if torch.cuda.is_available():
-            images=Variable()(images.cuda())
-            labels=Variable()(images.cuda())
-        else:
-            images=Variable()(images.cpu())
-            labels=Variable()(images.cpu())
+    print((len(train_loader)))
+    for i, (image,labels) in enumerate(train_loader):
+        images=Variable((image.cuda()))
+        labels=Variable((images.cuda()))
         
         optimizer.zero_grad()
         output = model(images)
@@ -152,9 +148,8 @@ for epoch in range(num_epochs):
     
     test_accuracy=0.0
     for i, (images,labels) in emmurate(test_loader):
-        if torch.cuda.is_available():
-            images=Variable(images.cuda())
-            labels=Variable(labels.cuda())
+        images=Variable(images.cuda())
+        labels=Variable(labels.cuda())
             
         outputs=model(images)
         _, prediction=torch.max(outputs.data,1)
@@ -164,9 +159,9 @@ for epoch in range(num_epochs):
     
     print("Epoch: " +str(epoch)+ " Train Loss: "+str(int(train_loss))+" Train Accuracy: " + str(train_accuracy)+" Test Accuracy: "+ str(test_accuracy))
     
-# Save the best model
-if test_accuracy>best_accuracy:
-    torch.save(model.state_dict( ))
+    # Save the best model
+    if test_accuracy>best_accuracy:
+        torch.save(model.state_dict( ))
 
-    
+ 
             

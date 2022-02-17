@@ -126,7 +126,9 @@ for epoch in range(num_epochs):
     print((len(train_loader)))
     for i, (image,labels) in enumerate(train_loader):
         images=Variable((image.cuda()))
-        labels=Variable((images.cuda()))
+        label1=Variable((images.cuda()))
+        labels2=Variable((labels.cuda()))
+        
         
         optimizer.zero_grad()
         output = model(images)
@@ -148,8 +150,9 @@ for epoch in range(num_epochs):
     
     test_accuracy=0.0
     for i, (images,labels) in emmurate(test_loader):
-        images=Variable(images.cuda())
-        labels=Variable(labels.cuda())
+        images=Variable((image.cuda()))
+        labels1=Variable((images.cuda()))
+        labels2=Variable((labels.cuda()))
             
         outputs=model(images)
         _, prediction=torch.max(outputs.data,1)

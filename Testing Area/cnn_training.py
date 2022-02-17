@@ -45,7 +45,7 @@ print(classes)
 
 # CNN network
 class ConvNet(nn.Module):
-    def __init__(self,num_classes):
+    def __init__(self,num_classes=6):
         super(ConvNet,self).__init__()
         
         # Ouput size after convution filter
@@ -60,7 +60,7 @@ class ConvNet(nn.Module):
         self.relu1=nn.ReLU()
         # Shape = (256, 12, 150, 150)
         
-        self.Pool=nn.MaxPool2d(kernel_size=2)
+        self.pool=nn.MaxPool2d(kernel_size=2)
         # Reduce the image size by factor 2
         # Shape = (256, 12, 75, 75)
         
@@ -71,12 +71,12 @@ class ConvNet(nn.Module):
         
         self.conv3=nn.Conv2d(in_channels=20, out_channels=32, kernel_size=3, stride=1, padding=1)
         # Shape = (256, 32, 75, 75)
-        self.bn3=nn.BatchNorm2d(num_features=20)
+        self.bn3=nn.BatchNorm2d(num_features=32)
         # Shape = (256, 32, 75, 75)
         self.relu3=nn.ReLU()
         # Shape = (256, 32, 75, 75)
         
-        self.fc=nn.Linear(in_features=32*75-75, out_features=num_classes)
+        self.fc=nn.Linear(in_features=32*75*75, out_features=num_classes)
 
     # Feed forward function
     def forward(self, input):
@@ -126,8 +126,7 @@ for epoch in range(num_epochs):
     print((len(train_loader)))
     for i, (image,labels) in enumerate(train_loader):
         images=Variable((image.cuda()))
-        label1=Variable((images.cuda()))
-        labels2=Variable((labels.cuda()))
+        labels=Variable((labels.cuda()))
         
         
         optimizer.zero_grad()
@@ -136,8 +135,8 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
         
-        train_loss+= loss.cpu().data*images.size(0)
-        _, prediction=torch.max(outputs.data,1)
+        train_loss+= loss.cuda().data*images.size(0)
+        _, prediction=torch.max(output.data,1)
         
         train_accuracy+=int(torch.sum(prediction==labels.data))
         train_accuracy+=int(torch.sum(prediction==labels.data))
@@ -149,10 +148,9 @@ for epoch in range(num_epochs):
     model.eval()
     
     test_accuracy=0.0
-    for i, (images,labels) in emmurate(test_loader):
+    for i, (images,labels) in enumerate(test_loader):
         images=Variable((image.cuda()))
-        labels1=Variable((images.cuda()))
-        labels2=Variable((labels.cuda()))
+        labels=Variable((labels.cuda()))
             
         outputs=model(images)
         _, prediction=torch.max(outputs.data,1)

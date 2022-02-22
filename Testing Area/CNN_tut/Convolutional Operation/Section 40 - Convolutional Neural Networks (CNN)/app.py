@@ -1,5 +1,7 @@
 # Importing the libraries
 import tensorflow as tf
+import numpy as np
+from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
@@ -70,3 +72,5 @@ cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Training the CNN on the training set and evaluate it on the test set
 cnn.fit(x = training_set, validation_data=test_set, epochs=25)
+
+# Part 4) Making a single prediction

@@ -35,4 +35,4 @@ test_set = test_datagen.flow_from_directory(
 cnn = tf.keras.models.Sequential()
 
 # Step 1) Convolution
-cnn.add(Conv2d())
+cnn.add(Conv2d(filters=32, kernel_size=3, activation='relu', input_shape=(64,64,3)))

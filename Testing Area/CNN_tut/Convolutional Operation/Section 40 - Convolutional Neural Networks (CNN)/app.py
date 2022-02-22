@@ -74,3 +74,19 @@ cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 cnn.fit(x = training_set, validation_data=test_set, epochs=25)
 
 # Part 4) Making a single prediction
+file_path_dog = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Testing Area/CNN_tut/Convolutional Operation/Section 40 - Convolutional Neural Networks (CNN)/dataset/single_prediction/cat_or_dog_1.jpg'
+file_path_cat = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Testing Area/CNN_tut/Convolutional Operation/Section 40 - Convolutional Neural Networks (CNN)/dataset/single_prediction/cat_or_dog_2.jpg'
+
+test_image = image.load_img(file_path_dog, target_size=(64,64))
+test_image = image.img_to_array(test_image)
+test_image = np.expand_dims(test_image, axis=0)
+
+print(training_set.class_indices)
+result = cnn.predict(test_image)
+
+if(result[0][0] == 1):
+    prediction = 'dog'
+else:
+    prediction = 'cat'
+    
+print(prediction)

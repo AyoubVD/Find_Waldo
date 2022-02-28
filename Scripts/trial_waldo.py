@@ -58,7 +58,7 @@ test_set = test_datagen.flow_from_directory(
     class_mode='binary'
 )
 
-
+""" 
 # Part 2
 # Building the CNN
 cnn = tf.keras.models.Sequential()
@@ -108,4 +108,4 @@ if(result[0][0] == 1):
 else:
     prediction = 'notwaldo'
     
-print(prediction)
+print(prediction) """

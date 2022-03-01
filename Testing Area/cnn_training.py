@@ -1,7 +1,7 @@
 # Load libraries
 import os
 import numpy as np
-import torch
+import pytorch as torch
 import glob
 import torch.nn as nn
 from torchvision.transforms import transforms

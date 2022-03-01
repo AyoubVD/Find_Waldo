@@ -15,6 +15,11 @@ plt.show()
 '''
 # C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/64/waldo/
 # C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/64/notwaldo/
+# C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/training/
+# C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing/
+
+
+ 
 
 # Importing the libraries
 import tensorflow as tf
@@ -25,7 +30,51 @@ from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 import os
 
-config = ConfigProto()
+# Proprocessing the test and training set
+train_datagen = ImageDataGenerator(rescale = 1./255,
+                                   shear_range = 0.2,
+                                   zoom_range = 0.2,
+                                   horizontal_flip = True)
+training_set = train_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/training/',
+                                                 target_size = (64, 64),
+                                                 batch_size = 32,
+                                                 class_mode = 'binary')
+test_datagen = ImageDataGenerator(rescale = 1./255)
+test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing/',
+                                            target_size = (64, 64),
+                                            batch_size = 32,
+                                            class_mode = 'binary')
+
+# Initialising the CNN
+cnn = tf.keras.models.Sequential()
+
+# Add convolution layer
+cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=3, activation='relu', input_shape=[64, 64, 3]))
+
+# Pooling
+cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
+
+# Add convolution layer
+cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=3, activation='relu'))
+
+# Pooling
+cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
+
+# Flattening
+cnn.add(tf.keras.layers.Flatten())
+
+# Full connection
+cnn.add(tf.keras.layers.Dense(units=128, activation='relu'))
+
+# Output layer
+cnn.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
+
+# Compile CNN
+cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+
+cnn.fit(x = training_set, validation_data = test_set, epochs = 2)
+
+''' config = ConfigProto()
 config.gpu_options.allow_growth = True
 session = InteractiveSession(config=config)
 
@@ -57,7 +106,7 @@ test_set = test_datagen.flow_from_directory(
     target_size=(64,64),
     batch_size=32,
     class_mode='binary'
-)
+) '''
 
 """ 
 # Part 2

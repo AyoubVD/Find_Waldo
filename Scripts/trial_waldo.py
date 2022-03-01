@@ -37,6 +37,7 @@ os.listdir(file_path_test)
 # Preprocessing => prevent overfitting/ overtraining
 # Apply transformations
 train_datagen = ImageDataGenerator(
+    file_path_train,
     rescale=1./255,
     shear_range=0.2,
     zoom_range=0.2,

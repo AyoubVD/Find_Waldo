@@ -61,6 +61,6 @@ test_image = np.expand_dims(test_image, axis = 0)
 result = cnn.predict(test_image)
 training_set.class_indices
 if result[0][0] == 1:
-  print('Tested negative for Waldo :(')
+  print("Tested negative for Waldo :'(")
 else:
   print('Tested positive for Waldo! :D')

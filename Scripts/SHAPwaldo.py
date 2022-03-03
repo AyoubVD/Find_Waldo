@@ -17,13 +17,14 @@ from keras.preprocessing.image import ImageDataGenerator
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 import os
-
+import cv2
+image = cv2.imread('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/training/notwaldo/1_0_0.jpg')
+print(image.shape)
 train_path = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/training'
 test_path = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing'
 
-
 cnn = tf.keras.preprocessing.image_dataset_from_directory(
-    directory='C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/training',
+    directory='C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/training/',
     labels="inferred",
     label_mode="int",
     class_names=None,
@@ -44,7 +45,7 @@ cnn = tf.keras.models.Sequential()
 cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=3, activation='relu', input_shape=[64, 64, 3]))
 
 # Pooling
-cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
+cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=1))
 
 # Add convolution layer
 cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=3, activation='relu'))
@@ -87,15 +88,6 @@ train_generator = ImageDataGenerator(rescale=1./255).flow_from_directory(
     seed=42
 )
 
-valid_generator = ImageDataGenerator(rescale=1./255).flow_from_directory(
-    directory=r"./valid/",
-    target_size=(224, 224),
-    color_mode="rgb",
-    batch_size=32,
-    class_mode="categorical",
-    shuffle=True,
-    seed=42
-)
 test_generator = ImageDataGenerator(rescale=1./255).flow_from_directory(
     directory= test_path,
     target_size=(224, 224),
@@ -105,3 +97,19 @@ test_generator = ImageDataGenerator(rescale=1./255).flow_from_directory(
     shuffle=False,
     seed=42
 )
+# Niet werkende code shape error -> dimensie img nakijken
+STEP_SIZE_TRAIN=train_generator.n//test_generator.batch_size
+STEP_SIZE_VALID=test_generator.n//test_generator.batch_size
+cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+cnn.fit(train_generator,
+                    steps_per_epoch=STEP_SIZE_TRAIN,
+                    validation_data=test_generator,
+                    validation_steps=STEP_SIZE_VALID,
+                    epochs=10
+)
+
+cnn.evaluate_generator(generator=test_generator,
+steps=STEP_SIZE_VALID)
+
+cnn.evaluate_generator(generator=test_generator,
+steps=STEP_SIZE_VALID)

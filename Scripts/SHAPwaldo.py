@@ -97,7 +97,7 @@ valid_generator = ImageDataGenerator(rescale=1./255).flow_from_directory(
     seed=42
 )
 test_generator = ImageDataGenerator(rescale=1./255).flow_from_directory(
-    directory=r"./test/",
+    directory= test_path,
     target_size=(224, 224),
     color_mode="rgb",
     batch_size=1,

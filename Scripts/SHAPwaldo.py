@@ -27,6 +27,19 @@ test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage f
 print(len(test_set))
 class_names = ['Waldo', 'Not Waldo']
 
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+#importing dataset
+dataset = test_set
+x = dataset[:, :-1].values
+y = dataset[:, 1].values
+
+#spliting the dataset into training and test set
+x_train, x_test, y_train, y_test = train_test_split(x, y, 
+test_size=1/3, random_state=0)
+
 # Initialising the CNN
 cnn = tf.keras.models.Sequential()
 
@@ -57,10 +70,10 @@ cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accura
 cnn.fit(x = training_set, validation_data = test_set, epochs = 1)
 
 
-# Save an example for each category in a dict
+""" # Save an example for each category in a dict
 images_dict = dict()
 for i in enumerate(training_set):
-    images_dict[i] = training_set[i].reshape((28, 28))
+    images_dict[i] = training_set[i].reshape((28, 28)) """
 
 
 """ 

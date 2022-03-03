@@ -22,7 +22,11 @@ test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage f
                                             batch_size = 32,
                                             class_mode = 'binary')
 #os.listdir('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing')
-print(len(test_set))
+#print('---------------------------------------------------')
+#print(training_set[1][1])
+#print('---------------------------------------------------')
+#print(len(training_set))
+#print(type(training_set))
 class_names = ['Waldo', 'Not Waldo']
 
 # Initialising the CNN

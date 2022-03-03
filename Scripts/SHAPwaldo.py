@@ -54,19 +54,13 @@ cnn.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
 # Compile CNN
 cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
-cnn.fit(x = training_set, validation_data = test_set, epochs = 5)
+cnn.fit(x = training_set, validation_data = test_set, epochs = 1)
 
-
-# Name each one of the classes
-class_names = ['Not Waldo', 'Waldo']
 
 # Save an example for each category in a dict
 images_dict = dict()
-for i, l in enumerate(y_train):
-  if len(images_dict)==10:
-    break
-  if l not in images_dict.keys():
-    images_dict[l] = x_train[i].reshape((28, 28))
+for i in enumerate(training_set):
+    images_dict[i] = training_set[i].reshape((28, 28))
 
 
 """ 

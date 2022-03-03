@@ -52,7 +52,7 @@ cnn.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
 # Compile CNN
 cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
-cnn.fit(x = training_set, validation_data = test_set, epochs = 10)
+cnn.fit(x = training_set, validation_data = test_set, epochs = 1)
 
 # Making a prediction
 test_image = image.load_img('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing/waldo/12_2_1.jpg', target_size = (64, 64))
@@ -61,6 +61,6 @@ test_image = np.expand_dims(test_image, axis = 0)
 result = cnn.predict(test_image)
 training_set.class_indices
 if result[0][0] == 1:
-  print('Tested negative for Waldo 😢')
+  print('Tested negative for Waldo :(')
 else:
-  print('Tested positive for Waldo! 😁')
+  print('Tested positive for Waldo! :D')

@@ -5,8 +5,11 @@ from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
+#To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 import os
-
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# As an unsafe, unsupported, undocumented workaround you can set the environment variable 
+os.environ['KMP_DUPLICATE_LIB_OK']='True' 
 # Proprocessing the test and training set
 train_datagen = ImageDataGenerator(rescale = 1./255,
                                    shear_range = 0.2,
@@ -16,14 +19,11 @@ training_set = train_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/St
                                                  target_size = (64, 64),
                                                  batch_size = 32,
                                                  class_mode = 'binary')
-x_train = training_set
-
 test_datagen = ImageDataGenerator(rescale = 1./255)
 test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing',
                                             target_size = (64, 64),
                                             batch_size = 32,
                                             class_mode = 'binary')
-x_test = test_set 
 #os.listdir('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing')
 #print('---------------------------------------------------')
 #print(training_set[1][1])
@@ -31,8 +31,6 @@ x_test = test_set
 #print(len(training_set))
 #print(type(training_set))
 class_names = ['Waldo', 'Not Waldo']
-y_test = class_names 
-y_train = y_test
 
 # Initialising the CNN
 cnn = tf.keras.models.Sequential()

@@ -5,8 +5,11 @@ from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
+#To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 import os
-
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# As an unsafe, unsupported, undocumented workaround you can set the environment variable 
+os.environ['KMP_DUPLICATE_LIB_OK']='True' 
 # Proprocessing the test and training set
 train_datagen = ImageDataGenerator(rescale = 1./255,
                                    shear_range = 0.2,

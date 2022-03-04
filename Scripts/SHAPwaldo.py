@@ -1,4 +1,6 @@
 # Importing the libraries
+import shap
+import numpy as np
 import tensorflow as tf
 import numpy as np
 from keras.preprocessing import image
@@ -21,20 +23,24 @@ training_set = train_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/St
                                                  class_mode = 'binary')
 x_train = training_set
 test_datagen = ImageDataGenerator(rescale = 1./255)
+
 test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing',
                                             target_size = (64, 64),
                                             batch_size = 32,
                                             class_mode = 'binary')
-x_test = testing_set
+x_test = test_set
+
 #os.listdir('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing')
 #print('---------------------------------------------------')
 #print(training_set[1][1])
 #print('---------------------------------------------------')
 #print(len(training_set))
 #print(type(training_set))
+
 class_names = ['Waldo', 'Not Waldo']
 y_train = class_names
 y_test = y_train
+
 # Initialising the CNN
 cnn = tf.keras.models.Sequential()
 
@@ -75,8 +81,6 @@ if result[0][0] == 1:
 else:
   print('Tested positive for Waldo! :D')
 
-import shap
-import numpy as np
 
 # select a set of background examples to take an expectation over
 background = x_train[np.random.choice(x_train.shape[0], 100, replace=False)]

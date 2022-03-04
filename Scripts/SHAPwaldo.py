@@ -19,11 +19,13 @@ training_set = train_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/St
                                                  target_size = (64, 64),
                                                  batch_size = 32,
                                                  class_mode = 'binary')
+x_train = training_set
 test_datagen = ImageDataGenerator(rescale = 1./255)
 test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing',
                                             target_size = (64, 64),
                                             batch_size = 32,
                                             class_mode = 'binary')
+x_test = testing_set
 #os.listdir('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing')
 #print('---------------------------------------------------')
 #print(training_set[1][1])
@@ -31,7 +33,8 @@ test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage f
 #print(len(training_set))
 #print(type(training_set))
 class_names = ['Waldo', 'Not Waldo']
-
+y_train = class_names
+y_test = y_train
 # Initialising the CNN
 cnn = tf.keras.models.Sequential()
 
@@ -71,3 +74,15 @@ if result[0][0] == 1:
   print("Tested negative for Waldo :'(")
 else:
   print('Tested positive for Waldo! :D')
+
+import shap
+import numpy as np
+
+# select a set of background examples to take an expectation over
+background = x_train[np.random.choice(x_train.shape[0], 100, replace=False)]
+
+# explain predictions of the model (named cnn in this case) on three images
+e = shap.DeepExplainer(cnn, background)
+# ...or pass tensors directly
+# e = shap.DeepExplainer((model.layers[0].input, model.layers[-1].output), background)
+shap_values = e.shap_values(x_test[1:5])

@@ -50,6 +50,10 @@ cnn.add(tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=2))
 # Flattening
 cnn.add(tf.keras.layers.Flatten())
 
+# Dropout, it removes some wieghts to prevent overfitting
+cnn.add(tf.keras.layers.Dropout(.2, input_shape=[64, 64, 3]))
+
+
 # Full connection
 cnn.add(tf.keras.layers.Dense(units=128, activation='relu'))
 

@@ -17,6 +17,8 @@ from tensorflow.compat.v1 import InteractiveSession
 #To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 import os
 
+print(tf.version)
+
 ''' os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # As an unsafe, unsupported, undocumented workaround you can set the environment variable 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'  '''
@@ -148,14 +150,20 @@ background = x_train[np.random.choice(x_train.shape[0], 100, replace=True)]
 e = shap.DeepExplainer(cnn, background)
 # ...or pass tensors directly
 # e = shap.DeepExplainer((model.layers[0].input, model.layers[-1].output), background)
+''' The returned value of model.fit is not the model instance; rather, 
+it's the history of training (i.e. stats like loss and metric values) as an instance of keras.callbacks.History class. 
+That's why you get the mentioned error when you pass the returned History object to shap.DeepExplainer. 
+Instead, you should pass the model instance itself: '''
 tf.executing_eagerly() #outputs following
 # keras is no longer supported, please use tf.keras instead.
 # Your TensorFlow version is newer than 2.4.0 and so graph support has been removed in eager mode. See PR #1483 for discussion.
-tf.compat.v1.enable_eager_execution(
-    config=None, device_policy=None, execution_mode=None
-)
+
 print('----------------------------------------------')
-shap_values = e.shap_values(x_test[1:5]) # Gave 2 errors:
+print(tf.version)
+shap_values = e.shap_values(x_test) # Gave 2 errors:
+print(e)
+
+#explainedIG = np.array(e.shap_values(x_test, background))
 # 1) AttributeError: module 'tensorflow.python.eager.backprop' has no attribute '_record_gradient'
 # File "C:\Users\ayoub\AppData\Local\Temp\tmpvn75rorw.py", line 16, in tf__grad_graph
 # out = ag__.converted_call(ag__.ld(self).model, (ag__.ld(shap_rAnD),), None, fscope)

@@ -147,21 +147,20 @@ background = x_train[np.random.choice(x_train.shape[0], 100, replace=True)]
 
 
 # explain predictions of the model (named cnn in this case) on three images
-e = shap.DeepExplainer(cnn, background)
+#e = shap.DeepExplainer(cnn, background)
 # ...or pass tensors directly
-# e = shap.DeepExplainer((model.layers[0].input, model.layers[-1].output), background)
+e = shap.DeepExplainer((cnn.layers[0].input, cnn.layers[-1].output), background)
 ''' The returned value of model.fit is not the model instance; rather, 
 it's the history of training (i.e. stats like loss and metric values) as an instance of keras.callbacks.History class. 
 That's why you get the mentioned error when you pass the returned History object to shap.DeepExplainer. 
 Instead, you should pass the model instance itself: '''
-tf.executing_eagerly() #outputs following
+#tf.executing_eagerly() #outputs following
 # keras is no longer supported, please use tf.keras instead.
 # Your TensorFlow version is newer than 2.4.0 and so graph support has been removed in eager mode. See PR #1483 for discussion.
 
 print('----------------------------------------------')
 print(tf.version)
-shap_values = e.shap_values(x_test) # Gave 2 errors:
-print(e)
+#shap_values = e.shap_values(x_test) # Gave 2 errors:
 
 #explainedIG = np.array(e.shap_values(x_test, background))
 # 1) AttributeError: module 'tensorflow.python.eager.backprop' has no attribute '_record_gradient'
@@ -169,4 +168,5 @@ print(e)
 # out = ag__.converted_call(ag__.ld(self).model, (ag__.ld(shap_rAnD),), None, fscope)
 
 # 2) File "C:\Users\ayoub\OneDrive\TMM\Stage fase 3\Arinti\FindWaldo\FindWaldo\Scripts\SHAPwaldo.py", line 153, in <module>
-# shap_values = e.shap_values(x_test[1:5])
+shap_values = e.shap_values(x_test[1:5][1:5])
+print(shap_values)

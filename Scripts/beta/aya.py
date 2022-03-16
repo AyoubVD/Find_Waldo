@@ -6,5 +6,4 @@ def helloWorld(x):
     return d,t
 
 x,t= helloWorld("yooo")
-print("x")
-
+print(t)

@@ -34,7 +34,10 @@ from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
+from PIL import Image
 import os
+
+imPath= 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing/waldo/12_2_1.jpg'
 
 # Proprocessing the test and training set
 train_datagen = ImageDataGenerator(rescale = 1./255,
@@ -54,6 +57,15 @@ test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage f
 print(len(test_set))
 class_names = ['Waldo', 'Not Waldo']
 
+'''
+from PIL import Image
+
+def get_num_pixels(filepath):
+    width, height = Image.open(filepath).size
+    return width*height
+
+print(get_num_pixels("C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/full/one.png"))
+ '''
 # Initialising the CNN
 cnn = tf.keras.models.Sequential()
 
@@ -90,7 +102,8 @@ test_image = np.expand_dims(test_image, axis = 0)
 result = cnn.predict(test_image)
 training_set.class_indices
 if result[0][0] == 1:
-  prediction = 'Not Waldo'
+    img = Image.open(imPath).convert('L')
+    img.save(imPath)
 else:
   prediction = 'Waldo'
 

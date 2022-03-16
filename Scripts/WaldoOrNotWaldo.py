@@ -10,6 +10,10 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # As an unsafe, unsupported, undocumented workaround you can set the environment variable 
 os.environ['KMP_DUPLICATE_LIB_OK']='True' 
+
+tf.compat.v1.disable_v2_behavior()
+
+
 # Proprocessing the test and training set
 train_datagen = ImageDataGenerator(rescale = 1./255,
                                    shear_range = 0.2,

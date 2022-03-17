@@ -102,11 +102,20 @@ class Resizer():
 class Edits():
     def mpTOwav(x):
         y = x.split('/')
-        z = y[len(y)-1].split('.')                                                                        
-        src = z[0] + ".mp3"
-        dst = z[0] + ".wav"
-        # convert wav to mp3                                                            
-        sound = AudioSegment.from_mp3(src)
-        sound.export(dst, format="wav")
-        return x.replace(src, dst)
-    def wow():
+        z = y[len(y)-1].split('.')
+        if(z[1] =='mp3'):                                                                      
+            src = z[0] + ".mp3"
+            dst = z[0] + ".wav"
+            # convert wav to mp3                                                            
+            sound = AudioSegment.from_mp3(src)
+            sound.export(dst, format="wav")
+            return x.replace(src, dst)
+        else:
+            return x
+    def officer(x):
+        z = mpTOwav(x)
+        root = Tk()
+        tkSnack.initializeSnack(root)
+        snd = tkSnack.Sound()
+        snd.read(z)
+        snd.play(blocking=1)

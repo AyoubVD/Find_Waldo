@@ -1,9 +1,11 @@
 from imageRE import OpenPicture as P
 from imageRE import Resizer as R
+from cowsay import cheese as C
+from cowsay import daemon as D
 #from imageRE import Resizer as R#
-from PIL import Image
 
 image = P.browseFiles()
-im = Image.open(image)
-  
-im.show()
+C("Let's find Wally")
+w,h = R.checkSize(image)
+D("This takes so long")
+R.addPadding(image, w, h)

@@ -2,6 +2,7 @@ import PIL
 from PIL import ImageTk
 from tkinter import *
 from tkinter import filedialog
+from pygame import mixer
 
 class OpenPicture():
     def browseFiles():
@@ -16,6 +17,7 @@ class OpenPicture():
                                                         ("Images",
                                                             "*.jfif*")))
         return filename
+    
     notP ="C:/wally.png"
     width, height = PIL.Image.open(notP).size
                                                                                                     
@@ -33,7 +35,6 @@ class OpenPicture():
     btn = Button(window, text='Find a Wally picture', width=20,
                 height=3, bd='10', command=browseFiles)
     btn.place(x=250, y=400)
-
 class Resizer():
     def checkSize(x):
         paddingW = 0
@@ -51,12 +52,12 @@ class Resizer():
                     tempW = tempW%64
             paddingH = width - tempH
         else:
-            if(height%64==0):
+            :if(height%64==0):
                 tempH = height%64
             elif(height%64!=0):
                 while(tempH!=0):
                     tempH+=1
-                    tempH = height%64
+                    tempH = tempH%64
             paddingW = height - tempW
         return paddingW,paddingH
     def addPadding(impath,w,h):
@@ -87,3 +88,39 @@ class Resizer():
         result.paste(image, (left, top))
         
         result.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'+filename+'_padded.png')
+class Edits():
+    def wow():
+
+        # Starting the mixer
+        mixer.init()
+
+        # Loading the song
+        mixer.music.load("song.mp3")
+
+        # Setting the volume
+        mixer.music.set_volume(0.7)
+
+        # Start playing the song
+        mixer.music.play()
+
+        # infinite loop
+        while True:
+            
+            print("Press 'p' to pause, 'r' to resume")
+            print("Press 'e' to exit the program")
+            query = input(" ")
+            
+            if query == 'p':
+
+                # Pausing the music
+                mixer.music.pause()	
+            elif query == 'r':
+
+                # Resuming the music
+                mixer.music.unpause()
+            elif query == 'e':
+
+                # Stop the mixer
+                mixer.music.stop()
+                break
+

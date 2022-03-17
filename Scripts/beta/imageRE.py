@@ -82,6 +82,16 @@ class Resizer():
         
         new_width = int(width + right + left)
         new_height = int(height + top + bottom)
+        bigBoy = True
+        while(bigBoy!=False):
+            if(new_width!=new_height):
+                if(new_width>new_height):
+                    new_width-=1
+                else:
+                    new_height-=1
+            else:
+                bigBoy=True
+        
         
         result = PIL.Image.new(image.mode, (new_width, new_height), (0, 0, 0))
         
@@ -90,37 +100,4 @@ class Resizer():
         result.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'+filename+'_padded.png')
 class Edits():
     def wow():
-
-        # Starting the mixer
-        mixer.init()
-
-        # Loading the song
-        mixer.music.load("song.mp3")
-
-        # Setting the volume
-        mixer.music.set_volume(0.7)
-
-        # Start playing the song
-        mixer.music.play()
-
-        # infinite loop
-        while True:
-            
-            print("Press 'p' to pause, 'r' to resume")
-            print("Press 'e' to exit the program")
-            query = input(" ")
-            
-            if query == 'p':
-
-                # Pausing the music
-                mixer.music.pause()	
-            elif query == 'r':
-
-                # Resuming the music
-                mixer.music.unpause()
-            elif query == 'e':
-
-                # Stop the mixer
-                mixer.music.stop()
-                break
-
+        

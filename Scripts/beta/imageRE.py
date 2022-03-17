@@ -2,8 +2,8 @@ import PIL
 from PIL import ImageTk
 from tkinter import *
 from tkinter import filedialog
-from pygame import mixer
-from Tkinter import tkSnack
+from pydub import AudioSegment
+from pydub.playback import play
 
 class OpenPicture():
     def browseFiles():
@@ -53,7 +53,7 @@ class Resizer():
                     tempW = tempW%64
             paddingH = width - tempH
         else:
-            :if(height%64==0):
+            if(height%64==0):
                 tempH = height%64
             elif(height%64!=0):
                 while(tempH!=0):
@@ -114,8 +114,5 @@ class Edits():
             return x
     def officer(x):
         z = mpTOwav(x)
-        root = Tk()
-        tkSnack.initializeSnack(root)
-        snd = tkSnack.Sound()
-        snd.read(z)
-        snd.play(blocking=1)
+        song = AudioSegment.from_wav(z)
+        play(song)

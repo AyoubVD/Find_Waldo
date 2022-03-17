@@ -3,6 +3,7 @@ from PIL import ImageTk
 from tkinter import *
 from tkinter import filedialog
 from pygame import mixer
+from Tkinter import tkSnack
 
 class OpenPicture():
     def browseFiles():
@@ -99,5 +100,13 @@ class Resizer():
         
         result.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'+filename+'_padded.png')
 class Edits():
+    def mpTOwav(x):
+        y = x.split('/')
+        z = y[len(y)-1].split('.')                                                                        
+        src = z[0] + ".mp3"
+        dst = z[0] + ".wav"
+        # convert wav to mp3                                                            
+        sound = AudioSegment.from_mp3(src)
+        sound.export(dst, format="wav")
+        return x.replace(src, dst)
     def wow():
-        

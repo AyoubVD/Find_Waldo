@@ -15,8 +15,6 @@ class OpenPicture():
                                                             "*.*"),
                                                         ("Images",
                                                             "*.jfif*")))
-        
-        # Change label contents
         return filename
     notP ="C:/wally.png"
     width, height = PIL.Image.open(notP).size
@@ -35,15 +33,15 @@ class OpenPicture():
     btn = Button(window, text='Find a Wally picture', width=20,
                 height=3, bd='10', command=browseFiles)
     btn.place(x=250, y=400)
-'''    
-class Resizer(x):
+
+class Resizer():
     def checkSize(x):
-        paddingW
-        paddingH
-        width, height = Image.open(x).size
+        paddingW = 0
+        paddingH = 0
+        width, height = PIL.Image.open(x).size
         tempW = width
         tempH = height
-        
+            
         if(width>height):
             if(width%64==0):
                 paddingW = width%64
@@ -51,8 +49,7 @@ class Resizer(x):
                 while(tempW!=0):
                     tempW+=1
                     tempW = tempW%64
-            paddingW = tempW - width
-            paddingH = tempH -width
+            paddingH = width - tempH
         else:
             if(height%64==0):
                 tempH = height%64
@@ -60,10 +57,33 @@ class Resizer(x):
                 while(tempH!=0):
                     tempH+=1
                     tempH = height%64
-            paddingW = tempW - height
-            paddingH = tempH - height
+            paddingW = height - tempW
         return paddingW,paddingH
-    #def addPadding(w,h): '''
+    def addPadding(impath,w,h):
+        #impath = "C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/full/one.png"
+        w,h = Resizer.checkSize(impath)
+        image = PIL.Image.open(impath)
+        filepathname = impath.split('/')
+        filename = filepathname[len(filepathname)-1].split('.')[0]
+        print(filename)
+        if(w==0):
+            top = int(h/2)
+            bottom = int(h/2)
+            right = 0
+            left = 0
+        else:
+            top = 0
+            bottom = 0
+            right = int(w/2)
+            left = int(w/2)
         
-
-                
+        width, height = image.size
+        
+        new_width = int(width + right + left)
+        new_height = int(height + top + bottom)
+        
+        result = PIL.Image.new(image.mode, (new_width, new_height), (0, 0, 0))
+        
+        result.paste(image, (left, top))
+        
+        result.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'+filename+'_padded.png')

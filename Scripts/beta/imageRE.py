@@ -83,15 +83,12 @@ class Resizer():
         
         new_width = int(width + right + left)
         new_height = int(height + top + bottom)
-        bigBoy = True
-        while(bigBoy!=False):
-            if(new_width!=new_height):
-                if(new_width>new_height):
-                    new_width-=1
-                else:
-                    new_height-=1
+        
+        if(new_width!=new_height):
+            if(new_width>new_height):
+                new_width -= (new_width-new_height)
             else:
-                bigBoy=True
+                new_height -= (new_height-new_width)
         
         
         result = PIL.Image.new(image.mode, (new_width, new_height), (0, 0, 0))
@@ -105,14 +102,12 @@ class Edits():
         z = y[len(y)-1].split('.')
         if(z[1] =='mp3'):                                                                      
             src = z[0] + ".mp3"
-            dst = z[0] + ".wav"
-            # convert wav to mp3                                                            
-            sound = AudioSegment.from_mp3(src)
+            dst = z[0] + ".wav"                                                       
+            sound = AudioSegment.from_mp3(x)
             sound.export(dst, format="wav")
-            return x.replace(src, dst)
+            song = AudioSegment.from_wav(x.replace(src, dst))
+            play(song)
         else:
-            return x
-    def officer(x):
-        z = mpTOwav(x)
-        song = AudioSegment.from_wav(z)
-        play(song)
+            song = AudioSegment.from_wav(x)
+            play(x)
+    

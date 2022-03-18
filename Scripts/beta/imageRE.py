@@ -4,6 +4,8 @@ from tkinter import *
 from tkinter import filedialog
 from pydub import AudioSegment
 from pydub.playback import play
+import os
+import shutil
 
 class OpenPicture():
     def browseFiles():
@@ -36,6 +38,12 @@ class OpenPicture():
     btn = Button(window, text='Find a Wally picture', width=20,
                 height=3, bd='10', command=browseFiles)
     btn.place(x=250, y=400)
+    def changePath(filename):
+        parantdir = filename
+        filepathname = filename.split('/')
+        directory = filepathname[len(filepathname)-1].split('.')[0]
+        parentdir = parentdir.replace((filepathname[len(filepathname)-1].split('.')[0]),('splitted/'+filepathname[len(filepathname)-1].split('.')[0]))
+        os.mkdir(os.path.join(parent_dir, directory))
 class Resizer():
     def checkSize(x):
         paddingW = 0

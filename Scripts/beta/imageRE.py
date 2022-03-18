@@ -38,12 +38,13 @@ class OpenPicture():
     btn = Button(window, text='Find a Wally picture', width=20,
                 height=3, bd='10', command=browseFiles)
     btn.place(x=250, y=400)
-    def changePath(filename):
+    ''' def changePath(filename):
         parantdir = filename
         filepathname = filename.split('/')
         directory = filepathname[len(filepathname)-1].split('.')[0]
-        parentdir = parentdir.replace((filepathname[len(filepathname)-1].split('.')[0]),('splitted/'+filepathname[len(filepathname)-1].split('.')[0]))
-        os.mkdir(os.path.join(parent_dir, directory))
+        parentdir = parantdir.replace(directory.split('.')[0],('splitted/'))
+        os.mkdir(os.path.join(parentdir, directory))
+        filePath = shutil.copy(filename, (parentdir + directory)) '''
 class Resizer():
     def checkSize(x):
         paddingW = 0
@@ -110,10 +111,13 @@ class Edits():
         z = y[len(y)-1].split('.')
         if(z[1] =='mp3'):                                                                      
             src = z[0] + ".mp3"
-            dst = z[0] + ".wav"                                                       
+            dst = z[0] + ".wav"   
+            print(z[0])                                                    
             sound = AudioSegment.from_mp3(x)
-            sound.export(dst, format="wav")
-            song = AudioSegment.from_wav(x.replace(src, dst))
+            sound.export(y[:len(y)-1]+dst, format="wav")
+            
+            xy = x.replace('/', '\\')
+            song = AudioSegment.from_wav(xy.replace(src, dst))
             play(song)
         else:
             song = AudioSegment.from_wav(x)

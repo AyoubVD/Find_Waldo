@@ -6,6 +6,7 @@ from imageRE import Edits as E
 
 image = P.browseFiles()
 cheese("Let's find Wally")
+#P.changePath(image)
 w,h = R.checkSize(image)
 daemon("This takes so long")
 R.addPadding(image, w, h)

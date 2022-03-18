@@ -2,6 +2,10 @@ from imageRE import OpenPicture as P
 from imageRE import Resizer as R
 from cowsay import cheese, daemon, trex
 from imageRE import Edits as E
+import pydub
+from pydub import AudioSegment
+import os
+from pydub.playback import play
 #from imageRE import Resizer as R#
 
 image = P.browseFiles()
@@ -11,4 +15,9 @@ w,h = R.checkSize(image)
 daemon("This takes so long")
 R.addPadding(image, w, h)
 trex("Padding has been removed")
-E.mpTOwav("C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/mp3/thatshim.mp3")
+#E.mpTOwav("C:/thatshim.mp3")
+print(os.getcwd())
+pydub.AudioSegment.ffmpeg = "C:/"   
+print(pydub.AudioSegment.ffmpeg)
+audiofile =  AudioSegment.from_mp3("thatshim.mp3")
+play(audiofile)

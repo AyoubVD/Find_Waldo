@@ -106,7 +106,9 @@ class Resizer():
         
         result.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'+filename+'_padded.png')
 class Edits():
-    def mpTOwav(x):
+    def mpTOwav(x):         
+        xy = x.replace('\\', '/')                                           
+        sound = AudioSegment.from_file(xy)
         y = x.split('/')
         z = y[len(y)-1].split('.')
         if(z[1] =='mp3'):                                                                      
@@ -116,7 +118,7 @@ class Edits():
             sound = AudioSegment.from_mp3(x)
             sound.export(y[:len(y)-1]+dst, format="wav")
             
-            xy = x.replace('/', '\\')
+            #
             song = AudioSegment.from_wav(xy.replace(src, dst))
             play(song)
         else:

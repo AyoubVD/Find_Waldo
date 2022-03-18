@@ -1,10 +1,10 @@
 from imageRE import OpenPicture as P
 from imageRE import Resizer as R
 from cowsay import cheese, daemon, trex
-from imageRE import Edits as E
+#from imageRE import Edits as E
+import os
 import pydub
 from pydub import AudioSegment
-import os
 from pydub.playback import play
 #from imageRE import Resizer as R#
 
@@ -14,10 +14,10 @@ cheese("Let's find Wally")
 w,h = R.checkSize(image)
 daemon("This takes so long")
 R.addPadding(image, w, h)
-trex("Padding has been removed")
+trex("Padding has been added")
 #E.mpTOwav("C:/thatshim.mp3")
-print(os.getcwd())
-pydub.AudioSegment.ffmpeg = "C:/"   
-print(pydub.AudioSegment.ffmpeg)
-audiofile =  AudioSegment.from_mp3("thatshim.mp3")
-play(audiofile)
+#print(os.getcwd())
+#pydub.AudioSegment.ffmpeg = "C:/"   
+#print(pydub.AudioSegment.ffmpeg)
+#audiofile =  AudioSegment.from_mp3("thatshim.mp3")
+#play(audiofile)

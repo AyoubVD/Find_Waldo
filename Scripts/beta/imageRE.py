@@ -103,8 +103,9 @@ class Resizer():
         result = PIL.Image.new(image.mode, (new_width, new_height), (0, 0, 0))
         
         result.paste(image, (left, top))
-        
-        result.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'+filename+'_padded.png')
+        paddedimg = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'+filename+'_padded.png'
+        result.save(paddedimg)
+        return paddedimg
 ''' class Edits():
     def mpTOwav(x):         
         xy = x.replace('\\', '/')                                           

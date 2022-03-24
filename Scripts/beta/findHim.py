@@ -28,10 +28,7 @@ from tensorflow.compat.v1 import InteractiveSession
 from PIL import Image
 import os
 
-def findW(x):
-    imPath= 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing/waldo/12_2_1.jpg'
-    imPath= x
-
+def findW():
     # Proprocessing the test and training set
     train_datagen = ImageDataGenerator(rescale = 1./255,
                                     shear_range = 0.2,
@@ -66,6 +63,9 @@ def findW(x):
 
     # Flattening
     cnn.add(tf.keras.layers.Flatten())
+    
+    # Dropout -> increase acc
+    cnn.add(tf.keras.layers.Dropout(0.2))
 
     # Full connection
     cnn.add(tf.keras.layers.Dense(units=128, activation='relu'))
@@ -76,19 +76,32 @@ def findW(x):
     # Compile CNN
     cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
-    cnn.fit(x = training_set, validation_data = test_set, epochs = 10)
-
-    # Making a prediction
-    test_image = image.load_img('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing/waldo/12_2_1.jpg', target_size = (64, 64))
+    cnn.fit(x = training_set, validation_data = test_set, epochs = 1)
+    cnn.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/model1')
+'''     #------------------
+    test_image = image.load_img(img, target_size = (64, 64))
     test_image = image.img_to_array(test_image)
     test_image = np.expand_dims(test_image, axis = 0)
-    result = cnn.predict(test_image)
-    training_set.class_indices
+    result = model.predict(test_image)
     if result[0][0] == 1:
-        prediction = False
         img = Image.open(x).convert('L')
-        img.save(x.split('/')[len(x.split('/')-1)])
+        img.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/results/'+x.split('/')[len(x.split('/'))-1])
+        return('Imposter')
     else:
-        prediction = True
+        return("That's him officer")
+    #------------------ '''
 
-    return prediction
+def fitW(img):
+    model = tf.keras.models.load_model('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/model1')
+    # Making a prediction
+    test_image = image.load_img(img, target_size = (64, 64))
+    test_image = image.img_to_array(test_image)
+    test_image = np.expand_dims(test_image, axis = 0)
+    result = model.predict(test_image)
+    if result[0][0] == 1:
+        img = Image.open(x).convert('L')
+        img.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/results/'+x.split('/')[len(x.split('/'))-1])
+        return('Imposter')
+    else:
+        return("That's him officer")
+

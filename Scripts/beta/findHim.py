@@ -28,6 +28,27 @@ from tensorflow.compat.v1 import InteractiveSession
 from PIL import Image
 import os
 
+def default_train_datagen():
+    datagen = ImageDataGenerator( fill_mode='constant', dtype=int)
+    train_datagen = ImageDataGenerator(rescale = 1./255,
+                                    shear_range = 0.2,
+                                    zoom_range = 0.2,
+                                    horizontal_flip = True)
+    datagen.fit(train_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/training',
+                                                    target_size = (64, 64),
+                                                    batch_size = 32,
+                                                    class_mode = 'binary'))
+    return datagen
+def default_test_datagen():
+    #datagen = ImageDataGenerator( fill_mode='constant', dtype=int)
+    test_datagen = ImageDataGenerator(rescale = 1./255,fill_mode='constant', dtype=int)
+    test_set = test_datagen.flow_from_directory('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/testing',
+                                                target_size = (64, 64),
+                                                batch_size = 32,
+                                                class_mode = 'binary')
+    test_set.fit(test_set)
+    return test_set
+
 def findW():
     # Proprocessing the test and training set
     train_datagen = ImageDataGenerator(rescale = 1./255,

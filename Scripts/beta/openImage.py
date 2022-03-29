@@ -1,5 +1,6 @@
 from imageRE import OpenPicture as P
 from imageRE import Resizer as R
+from makeSquare import addPadding
 from cowsay import cheese, daemon, trex
 #from imageRE import Edits as E
 import os
@@ -10,11 +11,12 @@ from pydub.playback import play
 from imageFormat import sliceIt
 from findHim import findW
 from findHim import fitW
-import PIL
+import PIL 
 
 #43.75
 #C:\Users\ayoub\OneDrive\TMM\Stage fase 3\Arinti\FindWaldo\FindWaldo\Scripts\images\64\waldo
 image = P.browseFiles()
+addPadding(image)
 print(image)
 #image = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/full/madeb.png'
 #cheese("Let's find Wally")

@@ -21,7 +21,7 @@ p ="C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/
 
 #image_slicer.main.slice(filename, number_tiles=64, col=None, row=None, save=True, DecompressionBombWarning=True)
 
-image_slicer.slice(p, 122)
+image_slicer.slice(p, 50)
 ''' def tile(filename, inp, outp, d):
     name, ext = os.path.splitext(filename)
     img = Image.open(os.path.join(inp, filename))

@@ -113,16 +113,17 @@ def findW():
     #------------------ '''
 
 def fitW(img):
-    model = tf.keras.models.load_model('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/model1')
+    model = tf.keras.models.load_model('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/converted/keras_model.h5')
     # Making a prediction
-    test_image = image.load_img(img, target_size = (64, 64))
+    test_image = image.load_img(img, target_size = (224, 224))
     test_image = image.img_to_array(test_image)
     test_image = np.expand_dims(test_image, axis = 0)
     result = model.predict(test_image)
     if result[0][0] == 1:
-        img = Image.open(x).convert('L')
-        img.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/results/'+x.split('/')[len(x.split('/'))-1])
-        return('Imposter')
-    else:
         return("That's him officer")
+    else:
+        img = Image.open(img).convert('L')
+        img.replace("padded", "results")
+        img.save(img)
+        return('Imposter')
 

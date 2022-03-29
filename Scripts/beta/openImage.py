@@ -22,25 +22,22 @@ print(image)
 #cheese("Let's find Wally")
 #P.changePath(image)
 #w,h = R.checkSize(image)
-print(PIL.Image.open(image).size)
-daemon("I'm training the model, be patient!")
+#print(PIL.Image.open(image).size)
+daemon(image)
 #findW()      
 #os.rename("C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/modelW.pb","C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/modelW")  
-for x in os.listdir('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/'):
+for x in os.listdir('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Models/TensorFlowSavedModel/'):
         print(x)
-print(fitW((image)))
 #paddedimg = R.addPadding(image, w, h)  
 #trex("Padding has been added")
-''' sliceIt(paddedimg)
-path = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/padded/'
+#sliceIt(paddedimg)
+path = 'C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/sliced/one/'
 for narnia in os.listdir(path):
         paddedpath = path + narnia
         #findW(paddedpath) 
-        width, height = PIL.Image.open(paddedpath).size
         #print(slices(paddedpath))
         #break
-        print(width)
-        print(height)    
+        print(fitW((paddedpath)))  
         os.remove(paddedpath)    
 #E.mpTOwav("C:/thatshim.mp3")
 #print(os.getcwd())

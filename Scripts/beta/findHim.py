@@ -123,7 +123,7 @@ def fitW(img):
         return("That's him officer")
     else:
         img = Image.open(img).convert('L')
-        img.replace("padded", "results")
-        img.save(img)
+        print(img)
+        img.save('C:/Users/ayoub/OneDrive/TMM/Stage fase 3/Arinti/FindWaldo/FindWaldo/Scripts/images/results/')
         return('Imposter')
 

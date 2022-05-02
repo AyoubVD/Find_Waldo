@@ -1,0 +1,324 @@
+{
+    "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.Resources/deployments/Microsoft.MachineLearningServices",
+    "name": "Microsoft.MachineLearningServices",
+    "type": "Microsoft.Resources/deployments",
+    "tags": {
+      "primaryResourceId": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourcegroups/RG-Internship-Ayoub/providers/Microsoft.MachineLearningServices/workspaces/Wally",
+      "marketplaceItemId": "Microsoft.MachineLearningServices",
+      "provisioningHash": "iwuh-wccbe-tt0-2enb-ioes-849e-tircx-guw6"
+    },
+    "properties": {
+      "templateHash": "5080257549333818093",
+      "parameters": {
+        "workspaceName": {
+          "type": "String",
+          "value": "Wally"
+        },
+        "location": {
+          "type": "String",
+          "value": "westeurope"
+        },
+        "resourceGroupName": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "sku": {
+          "type": "String",
+          "value": "Basic"
+        },
+        "identityType": {
+          "type": "String",
+          "value": "systemAssigned"
+        },
+        "primaryUserAssignedIdentityResourceGroup": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "primaryUserAssignedIdentityName": {
+          "type": "String",
+          "value": ""
+        },
+        "storageAccountOption": {
+          "type": "String",
+          "value": "new"
+        },
+        "storageAccountName": {
+          "type": "String",
+          "value": "wally2775214706"
+        },
+        "storageAccountType": {
+          "type": "String",
+          "value": "Standard_LRS"
+        },
+        "storageAccountBehindVNet": {
+          "type": "String",
+          "value": "false"
+        },
+        "storageAccountResourceGroupName": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "storageAccountLocation": {
+          "type": "String",
+          "value": "westeurope"
+        },
+        "storageAccountHnsEnabled": {
+          "type": "Bool",
+          "value": false
+        },
+        "keyVaultOption": {
+          "type": "String",
+          "value": "new"
+        },
+        "keyVaultName": {
+          "type": "String",
+          "value": "wally2561838275"
+        },
+        "keyVaultBehindVNet": {
+          "type": "String",
+          "value": "false"
+        },
+        "keyVaultResourceGroupName": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "keyVaultLocation": {
+          "type": "String",
+          "value": "westeurope"
+        },
+        "applicationInsightsOption": {
+          "type": "String",
+          "value": "new"
+        },
+        "applicationInsightsName": {
+          "type": "String",
+          "value": "wally4594508040"
+        },
+        "applicationInsightsResourceGroupName": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "applicationInsightsLocation": {
+          "type": "String",
+          "value": "westeurope"
+        },
+        "containerRegistryOption": {
+          "type": "String",
+          "value": "new"
+        },
+        "containerRegistryName": {
+          "type": "String",
+          "value": "WallyImages"
+        },
+        "containerRegistrySku": {
+          "type": "String",
+          "value": "Basic"
+        },
+        "containerRegistryResourceGroupName": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "containerRegistryBehindVNet": {
+          "type": "String",
+          "value": "false"
+        },
+        "containerRegistryLocation": {
+          "type": "String",
+          "value": "westeurope"
+        },
+        "vnetOption": {
+          "type": "String",
+          "value": "none"
+        },
+        "vnetName": {
+          "type": "String",
+          "value": "vngmjgtqeicueis"
+        },
+        "vnetResourceGroupName": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "addressPrefixes": {
+          "type": "Array",
+          "value": [
+            "10.0.0.0/16"
+          ]
+        },
+        "subnetOption": {
+          "type": "String",
+          "value": "none"
+        },
+        "subnetName": {
+          "type": "String",
+          "value": "sngmjgtqeicueis"
+        },
+        "subnetPrefix": {
+          "type": "String",
+          "value": "10.0.0.0/24"
+        },
+        "adbWorkspace": {
+          "type": "String",
+          "value": ""
+        },
+        "confidential_data": {
+          "type": "String",
+          "value": "false"
+        },
+        "encryption_status": {
+          "type": "String",
+          "value": "Disabled"
+        },
+        "cmk_keyvault": {
+          "type": "String",
+          "value": ""
+        },
+        "resource_cmk_uri": {
+          "type": "String",
+          "value": ""
+        },
+        "cmk_storageAccountId": {
+          "type": "String",
+          "value": ""
+        },
+        "cmk_searchAccountId": {
+          "type": "String",
+          "value": ""
+        },
+        "cmk_cosmosDbId": {
+          "type": "String",
+          "value": ""
+        },
+        "privateEndpointType": {
+          "type": "String",
+          "value": "none"
+        },
+        "tagValues": {
+          "type": "Object",
+          "value": {}
+        },
+        "privateEndpointName": {
+          "type": "String",
+          "value": "pe"
+        },
+        "privateEndpointResourceGroupName": {
+          "type": "String",
+          "value": "RG-Internship-Ayoub"
+        },
+        "privateEndpointSubscription": {
+          "type": "String",
+          "value": "a8260178-3b6d-4bce-a07e-3aae8c7a62af"
+        },
+        "systemDatastoresAuthMode": {
+          "type": "String",
+          "value": "accessKey"
+        }
+      },
+      "mode": "Incremental",
+      "debugSetting": {
+        "detailLevel": "None"
+      },
+      "provisioningState": "Running",
+      "timestamp": "2022-04-12T12:24:55.9384161Z",
+      "duration": "PT0.3984321S",
+      "correlationId": "e09122eb-0c40-4f7a-b4ef-eda7e705c0ee",
+      "providers": [
+        {
+          "namespace": "Microsoft.Storage",
+          "resourceTypes": [
+            {
+              "resourceType": "storageAccounts",
+              "locations": [
+                "westeurope"
+              ]
+            }
+          ]
+        },
+        {
+          "namespace": "Microsoft.KeyVault",
+          "resourceTypes": [
+            {
+              "resourceType": "vaults",
+              "locations": [
+                "westeurope"
+              ]
+            }
+          ]
+        },
+        {
+          "namespace": "Microsoft.ContainerRegistry",
+          "resourceTypes": [
+            {
+              "resourceType": "registries",
+              "locations": [
+                "westeurope"
+              ]
+            }
+          ]
+        },
+        {
+          "namespace": "Microsoft.Insights",
+          "resourceTypes": [
+            {
+              "resourceType": "components",
+              "locations": [
+                "westeurope"
+              ]
+            }
+          ]
+        },
+        {
+          "namespace": "Microsoft.MachineLearningServices",
+          "resourceTypes": [
+            {
+              "resourceType": "workspaces",
+              "locations": [
+                "westeurope"
+              ]
+            }
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.Storage/storageAccounts/wally2775214706",
+              "resourceType": "Microsoft.Storage/storageAccounts",
+              "resourceName": "wally2775214706"
+            },
+            {
+              "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.KeyVault/vaults/wally2561838275",
+              "resourceType": "Microsoft.KeyVault/vaults",
+              "resourceName": "wally2561838275"
+            },
+            {
+              "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.Insights/components/wally4594508040",
+              "resourceType": "Microsoft.Insights/components",
+              "resourceName": "wally4594508040"
+            },
+            {
+              "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.ContainerRegistry/registries/WallyImages",
+              "resourceType": "Microsoft.ContainerRegistry/registries",
+              "resourceName": "WallyImages"
+            }
+          ],
+          "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.MachineLearningServices/workspaces/Wally",
+          "resourceType": "Microsoft.MachineLearningServices/workspaces",
+          "resourceName": "Wally"
+        },
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.MachineLearningServices/workspaces/Wally",
+              "resourceType": "Microsoft.MachineLearningServices/workspaces",
+              "resourceName": "Wally"
+            }
+          ],
+          "id": "/subscriptions/a8260178-3b6d-4bce-a07e-3aae8c7a62af/resourceGroups/RG-Internship-Ayoub/providers/Microsoft.Resources/deployments/DeployPrivateEndpoint-4yxlorfvgucfo",
+          "resourceType": "Microsoft.Resources/deployments",
+          "resourceName": "DeployPrivateEndpoint-4yxlorfvgucfo"
+        }
+      ],
+      "validationLevel": "Template"
+    }
+  }

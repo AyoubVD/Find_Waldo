@@ -1,0 +1,29 @@
+2022-05-02 16:01:53.467 - INFO - 17312 - azureml.train.automl._local_managed_utils.is_docker_installed:354 - Docker is installed with Docker version 20.10.11, build dea9396
+.
+2022-05-02 16:01:53.468 - INFO - 17312 - azureml.train.automl.automlconfig._start_execution:222 - Submitting remote.
+2022-05-02 16:15:31.341 - INFO - 17312 - azureml.train.automl._local_managed_utils.is_docker_installed:354 - Docker is installed with Docker version 20.10.11, build dea9396
+.
+2022-05-02 16:15:31.342 - INFO - 17312 - azureml.train.automl.automlconfig._start_execution:222 - Submitting remote.
+2022-05-02 22:09:16.807 - INFO - 18216 - azureml.train.automl._local_managed_utils.is_docker_installed:354 - Docker is installed with Docker version 20.10.11, build dea9396
+.
+2022-05-02 22:09:16.820 - INFO - 18216 - azureml.train.automl.automlconfig._start_execution:222 - Submitting remote.
+2022-05-02 22:21:57.345 - INFO - 18216 - azureml.train.automl._local_managed_utils.is_docker_installed:354 - Docker is installed with Docker version 20.10.11, build dea9396
+.
+2022-05-02 22:21:57.346 - INFO - 18216 - azureml.train.automl.automlconfig._start_execution:222 - Submitting remote.
+2022-05-02 22:47:16.536 - INFO - 18216 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetBestChild
+2022-05-02 22:47:16.577 - INFO - 18216 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2022-05-02 22:47:17.676 - INFO - 18216 - azureml.train.automl.run._log_activity:93 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=1099.81[ms]
+2022-05-02 22:47:18.150 - INFO - 18216 - azureml.train.automl.run._log_activity:93 - ActivityCompleted: Activity=GetBestChild, HowEnded=Success, Duration=1613.83[ms]
+2022-05-03 02:27:14.743 - INFO - 2948 - azureml.train.automl._local_managed_utils.is_docker_installed:354 - Docker is installed with Docker version 20.10.11, build dea9396
+.
+2022-05-03 02:27:14.749 - INFO - 2948 - azureml.train.automl.automlconfig._start_execution:222 - Submitting remote.
+2022-05-03 02:39:24.863 - INFO - 2948 - azureml.train.automl._local_managed_utils.is_docker_installed:354 - Docker is installed with Docker version 20.10.11, build dea9396
+.
+2022-05-03 02:39:24.878 - INFO - 2948 - azureml.train.automl.automlconfig._start_execution:222 - Submitting remote.
+2022-05-03 03:05:17.037 - INFO - 2948 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetBestChild
+2022-05-03 03:05:17.077 - INFO - 2948 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2022-05-03 03:05:18.227 - INFO - 2948 - azureml.train.automl.run._log_activity:93 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=1149.85[ms]
+2022-05-03 03:05:18.727 - INFO - 2948 - azureml.train.automl.run._log_activity:93 - ActivityCompleted: Activity=GetBestChild, HowEnded=Success, Duration=1690.25[ms]
+2022-05-03 09:09:52.484 - INFO - 16188 - azureml.train.automl._local_managed_utils.is_docker_installed:354 - Docker is installed with Docker version 20.10.11, build dea9396
+.
+2022-05-03 09:09:52.490 - INFO - 16188 - azureml.train.automl.automlconfig._start_execution:222 - Submitting remote.

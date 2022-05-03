@@ -10,7 +10,7 @@ if(uploaded_file != None):
         st.write("This is the image you chose:")
         st.image(uploaded_file)
 hom_image = "wally.png"
-st.image(hom_image)
+#st.image(hom_image)
 
 
 

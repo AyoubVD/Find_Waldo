@@ -2,7 +2,10 @@
 *.npy
 tensorflow/
 Testing Area/CNN_tut/Convolutional Operation/Section 40 - Convolutional Neural Networks (CNN)/dataset.zip
-streamlit/fridgeObjects
+streamlit/fridgeObjects/can
+streamlit/fridgeObjects/carton
+streamlit/fridgeObjects/milk_bottle
+streamlit/fridgeObjects/water_bottle
 streamlit/images/Wally
 streamlit/images/nwally
 Scripts/images

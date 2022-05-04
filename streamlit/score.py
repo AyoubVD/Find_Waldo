@@ -26,7 +26,7 @@ def init():
     # Set up logging
     _set_logging_parameters(TASK_TYPE, {})
 
-    model_path = Model.get_model_path(model_name='AutoML0ecc00b0c0')
+    model_path = Model.get_model_path(model_name='AutoML4de1264eb5')
 
     try:
         logger.info("Loading model from path: {}.".format(model_path))

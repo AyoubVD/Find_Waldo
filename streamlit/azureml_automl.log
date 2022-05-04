@@ -416,3 +416,87 @@
 2022-05-03 13:31:07.221 - INFO - 16288 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:381 - Start creating parent run.
 2022-05-03 13:31:07.693 - INFO - 16288 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:401 - [ParentRunID:AutoML_8e32f83f-7b40-4431-9bf2-ba680398bbf8] Remote run using input X and y.
 2022-05-03 13:31:08.132 - INFO - 16288 - azureml.train.automl._experiment_drivers.driver_utilities.start_remote_run:336 - Starting a snapshot run (snapshot_id : None)
+2022-05-03 13:54:48.022 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package azureml-train-automl missing from dependencies file.
+2022-05-03 13:54:48.025 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: azureml-train-automl==1.41.0.*
+2022-05-03 13:54:48.025 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pandas missing from dependencies file.
+2022-05-03 13:54:48.025 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pandas==1.1.5
+2022-05-03 13:54:48.026 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package psutil missing from dependencies file.
+2022-05-03 13:54:48.026 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: psutil>5.0.0,<6.0.0
+2022-05-03 13:54:48.026 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package scikit-learn missing from dependencies file.
+2022-05-03 13:54:48.027 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: scikit-learn==0.22.1
+2022-05-03 13:54:48.027 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package numpy missing from dependencies file.
+2022-05-03 13:54:48.027 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: numpy~=1.18.0
+2022-05-03 13:54:48.027 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package py-xgboost missing from dependencies file.
+2022-05-03 13:54:48.028 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: py-xgboost==1.3.3
+2022-05-03 13:54:48.045 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package inference-schema missing from dependencies file.
+2022-05-03 13:54:48.048 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:231 - Using installed version: inference-schema==1.3.0
+2022-05-03 13:54:48.049 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package fbprophet missing from dependencies file.
+2022-05-03 13:54:48.049 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: fbprophet==0.7.1
+2022-05-03 13:54:48.050 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package holidays missing from dependencies file.
+2022-05-03 13:54:48.050 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: holidays==0.10.3
+2022-05-03 13:54:48.050 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package joblib missing from dependencies file.
+2022-05-03 13:54:48.051 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: joblib==0.14.1
+2022-05-03 13:54:48.051 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pystan missing from dependencies file.
+2022-05-03 13:54:48.051 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pystan==2.19.1.1
+2022-05-03 13:54:48.052 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package setuptools-git missing from dependencies file.
+2022-05-03 13:54:48.052 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package urllib3 missing from dependencies file.
+2022-05-03 13:54:48.053 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:231 - Using installed version: urllib3==1.26.7
+2022-05-03 13:54:48.053 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package azure-core missing from dependencies file.
+2022-05-03 13:54:48.054 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:231 - Using installed version: azure-core==1.21.1
+2022-05-03 13:54:48.055 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pytorch missing from dependencies file.
+2022-05-03 13:54:48.055 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pytorch=1.4.0
+2022-05-03 13:54:48.056 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package cudatoolkit missing from dependencies file.
+2022-05-03 13:54:48.056 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: cudatoolkit=10.1.243
+2022-05-03 13:54:48.056 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pytorch-transformers missing from dependencies file.
+2022-05-03 13:54:48.056 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pytorch-transformers==1.0.0
+2022-05-03 13:54:48.057 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package spacy missing from dependencies file.
+2022-05-03 13:54:48.057 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: spacy==2.1.8
+2022-05-03 13:54:48.057 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz missing from dependencies file.
+2022-05-03 13:54:48.058 - INFO - 21728 - azureml.automl.core.dataset_utilities._save_datasets_to_json:236 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2022-05-03 13:54:48.059 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:124 - Start data validation.
+2022-05-03 13:54:49.325 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:137 - Validation service found the data has no errors.
+2022-05-03 13:54:49.325 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:381 - Start creating parent run.
+2022-05-03 13:54:49.768 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:401 - [ParentRunID:AutoML_29c38490-c58d-4a70-b5e1-b7996e1d4803] Remote run using input X and y.
+2022-05-03 13:54:50.302 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.start_remote_run:336 - Starting a snapshot run (snapshot_id : None)
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package azureml-train-automl missing from dependencies file.
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: azureml-train-automl==1.41.0.*
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pandas missing from dependencies file.
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pandas==1.1.5
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package psutil missing from dependencies file.
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: psutil>5.0.0,<6.0.0
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package scikit-learn missing from dependencies file.
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: scikit-learn==0.22.1
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package numpy missing from dependencies file.
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: numpy~=1.18.0
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package py-xgboost missing from dependencies file.
+2022-05-03 14:04:04.904 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: py-xgboost==1.3.3
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package inference-schema missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:231 - Using installed version: inference-schema==1.3.0
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package fbprophet missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: fbprophet==0.7.1
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package holidays missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: holidays==0.10.3
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package joblib missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: joblib==0.14.1
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pystan missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pystan==2.19.1.1
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package setuptools-git missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package urllib3 missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:231 - Using installed version: urllib3==1.26.7
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package azure-core missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:231 - Using installed version: azure-core==1.21.1
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pytorch missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pytorch=1.4.0
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package cudatoolkit missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: cudatoolkit=10.1.243
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package pytorch-transformers missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: pytorch-transformers==1.0.0
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package spacy missing from dependencies file.
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:227 - Using pinned version: spacy==2.1.8
+2022-05-03 14:04:04.919 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.modify_run_configuration:221 - Package https://aka.ms/automl-resources/packages/en_core_web_sm-2.1.0.tar.gz missing from dependencies file.
+2022-05-03 14:04:04.935 - INFO - 21728 - azureml.automl.core.dataset_utilities._save_datasets_to_json:236 - JSON serialization of input of type <class 'NoneType'> is un-supported.
+2022-05-03 14:04:04.935 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:124 - Start data validation.
+2022-05-03 14:04:06.725 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.validate_input:137 - Validation service found the data has no errors.
+2022-05-03 14:04:06.725 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:381 - Start creating parent run.
+2022-05-03 14:04:07.587 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.create_remote_parent_run:401 - [ParentRunID:AutoML_4de1264e-b45b-4798-86ce-4ce654b180c2] Remote run using input X and y.
+2022-05-03 14:04:08.027 - INFO - 21728 - azureml.train.automl._experiment_drivers.driver_utilities.start_remote_run:336 - Starting a snapshot run (snapshot_id : None)
